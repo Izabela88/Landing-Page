@@ -61,7 +61,8 @@ function smoothScroll(e) {
   });
 }
 
-//Make highlights section and navbar links upon scrolling.
+//
+
 function makeActive() {
   for (const [i, section] of sections.entries()) {
     const box = section.getBoundingClientRect();
@@ -83,14 +84,14 @@ function hideNavbar() {
   if (prevScrollpos != currentScrollPos) {
     navbar.style.top = "0";
   } else {
-    let navbarHeight = navbar.offsetHeight;
-    setInterval(navTimeOut(navbarHeight), 4000);
+    setInterval(navTimeOut, 4000);
   }
 }
 
 // Hide navbar
-function navTimeOut(height) {
-  navbar.style.top = `-${height}px`;
+function navTimeOut() {
+  navbarHeight = navbar.offsetHeight;
+  navbar.style.top = `-${navbarHeight}px`;
 }
 
 
