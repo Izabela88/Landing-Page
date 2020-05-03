@@ -13,14 +13,19 @@
  *
  */
 
-/**
- * Define Global Variables
- *
- */
 
 const navList = document.querySelector("#navbar__list");
 const sections = document.querySelectorAll("section");
+const navbarLinks = [];
+const navbar = document.querySelector(".navbar__menu");
 
+// Add event on scroll and call functions
+document.addEventListener("scroll", function () {
+  makeActive();
+  hideNavbar();
+});
+
+// Create navbar 
 for (let i = 0; i < sections.length; i++) {
   // Create elements and put in variables
   let sectionName = document.querySelectorAll("section")[i].getAttribute("data-nav");
@@ -28,60 +33,76 @@ for (let i = 0; i < sections.length; i++) {
   let liNav = document.createElement("li");
   let aNav = document.createElement("a");
   let attribute = document.createAttribute("href");
-  let sectionId = document.querySelectorAll('section')[i].getAttribute("id");
+  let sectionId = document.querySelectorAll("section")[i].getAttribute("id");
   attribute.value = "#" + sectionId;
   aNav.setAttributeNode(attribute);
-  console.log(aNav);
   // Append created elements inside this vars
   aNav.appendChild(textNode);
   liNav.appendChild(aNav);
   navList.appendChild(liNav);
+  // Navbar links append to list
+  navbarLinks.push(aNav);
+  // Add class to navbar links
+  aNav.className += "menu__link";
 }
 
-// console.log(navList);
-// console.log(sections);
-
-// create elements-smooth scrolling
-const navbarLinks = document.querySelectorAll("a");
+// Create elements-smooth scrolling
 navbarLinks.forEach(elem => elem.addEventListener("click", smoothScroll));
 
 // Smooth scrolling
 function smoothScroll(e) {
   e.preventDefault();
   const targetId = e.currentTarget.getAttribute("href");
+  let position = document.querySelector(targetId).offsetTop - 150;
+  // console.log(sc)
   window.scrollTo({
-    top: document.querySelector(targetId).offsetTop,
+    top: position,
     behavior: "smooth"
   });
+}
+
+//Make highlights section and navbar links upon scrolling.
+function makeActive() {
+  for (const [i, section] of sections.entries()) {
+    const box = section.getBoundingClientRect();
+    if (box.top <= 200 && box.bottom >= 200) {
+      section.classList.add("your-active-class");
+      navbarLinks[i].classList.add("active");
+    } else {
+      section.classList.remove("your-active-class");
+      navbarLinks[i].classList.remove("active");
+    }
+  }
+}
+
+// Check page coords if != show navbar else hide after 4s
+var prevScrollpos = window.pageYOffset;
+
+function hideNavbar() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos != currentScrollPos) {
+    navbar.style.top = "0";
+  } else {
+    let navbarHeight = navbar.offsetHeight;
+    setInterval(navTimeOut(navbarHeight), 4000);
+  }
+}
+
+// Hide navbar
+function navTimeOut(height) {
+  navbar.style.top = `-${height}px`;
 }
 
 
 
 
 
-/**
- * End Global Variables
- * Start Helper Functions
- *
- */
-
-/**
- * End Helper Functions
- * Begin Main Functions
- *
- */
 
 // build the nav
 
 // Add class 'active' to section when near top of viewport
 
 // Scroll to anchor ID using scrollTO event
-
-/**
- * End Main Functions
- * Begin Events
- *
- */
 
 // Build menu
 
