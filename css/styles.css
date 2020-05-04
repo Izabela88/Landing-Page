@@ -75,7 +75,7 @@ section {
   top: 0;
   width: 100%;
   display: block;
-  transition: top 0.3s;
+  transition: top 1s ease-in-out;
 }
 
 .navbar__menu ul {
@@ -91,7 +91,7 @@ section {
 
 .menu__link {
   display: block;
-  padding: 1em;
+  padding: 1.5em;
   font-weight: bold;
   text-decoration: none;
   color: #000;

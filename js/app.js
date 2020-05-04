@@ -19,10 +19,9 @@ const sections = document.querySelectorAll("section");
 const navbarLinks = [];
 const navbar = document.querySelector(".navbar__menu");
 
-// Add event on scroll and call functions
-document.addEventListener("scroll", function () {
+// Add event scroll and call functions
+window.addEventListener("scroll", function () {
   makeActive();
-  hideNavbar();
 });
 
 // Create navbar 
@@ -54,15 +53,13 @@ function smoothScroll(e) {
   e.preventDefault();
   const targetId = e.currentTarget.getAttribute("href");
   let position = document.querySelector(targetId).offsetTop - 150;
-  // console.log(sc)
   window.scrollTo({
     top: position,
     behavior: "smooth"
   });
 }
 
-//
-
+// When clicking an item from the navigation menu, the link scroll to the appropriate section
 function makeActive() {
   for (const [i, section] of sections.entries()) {
     const box = section.getBoundingClientRect();
@@ -76,37 +73,14 @@ function makeActive() {
   }
 }
 
-// Check page coords if != show navbar else hide after 4s
+// Hide navigation bar while not scrolling
 var prevScrollpos = window.pageYOffset;
-
-function hideNavbar() {
+window.onscroll = function () {
   var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos != currentScrollPos) {
+  if (prevScrollpos > currentScrollPos) {
     navbar.style.top = "0";
   } else {
-    setInterval(navTimeOut, 4000);
+    navbar.style.top = "-200px";
   }
+  prevScrollpos = currentScrollPos;
 }
-
-// Hide navbar
-function navTimeOut() {
-  navbarHeight = navbar.offsetHeight;
-  navbar.style.top = `-${navbarHeight}px`;
-}
-
-
-
-
-
-
-// build the nav
-
-// Add class 'active' to section when near top of viewport
-
-// Scroll to anchor ID using scrollTO event
-
-// Build menu
-
-// Scroll to section on link click
-
-// Set sections as active
