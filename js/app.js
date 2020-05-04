@@ -105,7 +105,7 @@ function scrollFunction() {
     }
   }
 }
-console.log(backToTopButton);
+
 backToTopButton.addEventListener("click", backToTop);
 
 function backToTop() {

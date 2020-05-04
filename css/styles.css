@@ -134,7 +134,7 @@ section {
   font-size: 25px;
   width: 45px;
   height: 45px;
-  background-color: #cc1;
+  background-color: #fff;
   color: #333;
   cursor: pointer;
   outline: none;
@@ -146,7 +146,7 @@ section {
 
 #back-to-top-btn:hover,
 #back-to-top-btn:focus {
-  background-color: #fff;
+  background-color: #cc1;
   color: #333;
 }
 
