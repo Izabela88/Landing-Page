@@ -9,6 +9,10 @@
 */
 
 /* ---- Base Rules ---- */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: rgb(136, 203, 171);
   background: linear-gradient(
@@ -121,6 +125,48 @@ section {
 
 .page__footer p {
   color: #fff;
+}
+
+#back-to-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  font-size: 25px;
+  width: 45px;
+  height: 45px;
+  background-color: #cc1;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  border: 3px solid #333;
+  border-radius: 50%;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+#back-to-top-btn:hover,
+#back-to-top-btn:focus {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Animations */
+.btnEntrance {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-name: btnEntrance;
+}
+
+/* fadeInUp */
+@keyframes btnEntrance {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 /* ---- Theme Rules ---- */

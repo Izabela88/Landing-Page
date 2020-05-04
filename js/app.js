@@ -18,10 +18,12 @@ const navList = document.querySelector("#navbar__list");
 const sections = document.querySelectorAll("section");
 const navbarLinks = [];
 const navbar = document.querySelector(".navbar__menu");
+const backToTopButton = document.querySelector("#back-to-top-btn");
 
 // Add event scroll and call functions
 window.addEventListener("scroll", function () {
   makeActive();
+  scrollFunction();
 });
 
 // Create navbar 
@@ -84,3 +86,29 @@ window.onscroll = function () {
   }
   prevScrollpos = currentScrollPos;
 }
+
+// Scroll to top button
+function scrollFunction() {
+  if (window.pageYOffset > 400) {
+    // Show backToTopButton
+    if (!backToTopButton.classList.contains("btnEntrance")) {
+      backToTopButton.classList.add("btnEntrance");
+      backToTopButton.style.display = "block";
+    }
+  } else {
+    // Hide backToTopButton
+    if (backToTopButton.classList.contains("btnEntrance")) {
+      backToTopButton.classList.remove("btnEntrance");
+      setTimeout(function () {
+        backToTopButton.style.display = "none";
+      }, 300);
+    }
+  }
+}
+console.log(backToTopButton);
+backToTopButton.addEventListener("click", backToTop);
+
+function backToTop() {
+  window.scroll(0, 0);
+}
+
