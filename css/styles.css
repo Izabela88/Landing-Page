@@ -32,8 +32,9 @@ body {
 /* Typeography General*/
 h1 {
   font-family: "Fira Sans", sans-serif;
-  font-size: 3em;
-  margin: 2em 1rem;
+  font-size: 4em;
+  margin: 3em 1rem;
+  text-align: center;
 }
 
 h2 {
@@ -166,7 +167,7 @@ section {
 /* ---- Theme Rules ---- */
 /* Landing Container Styles */
 .landing__container {
-  padding: 1em;
+  padding: 4em;
   text-align: left;
 }
 
