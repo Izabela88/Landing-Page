@@ -36,13 +36,6 @@ h1 {
   margin: 2em 1rem;
 }
 
-@media only screen and (min-width: 35em) {
-  h1 {
-    font-size: 7em;
-    margin: 2em 4rem 1em;
-  }
-}
-
 h2 {
   border-bottom: 1px solid #cc1;
   font-family: "Oxygen", Sans-Serif;
@@ -99,6 +92,7 @@ section {
   font-weight: bold;
   text-decoration: none;
   color: #000;
+  text-align: center;
 }
 
 .menu__link:hover {
@@ -150,7 +144,7 @@ section {
   color: #333;
 }
 
-/* Animations */
+/* Animations go to top button */
 .btnEntrance {
   animation-duration: 0.5s;
   animation-fill-mode: both;
@@ -174,13 +168,6 @@ section {
 .landing__container {
   padding: 1em;
   text-align: left;
-}
-
-@media only screen and (min-width: 35em) {
-  .landing__container {
-    max-width: 50em;
-    padding: 4em;
-  }
 }
 
 section:nth-of-type(even) .landing__container {

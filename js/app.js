@@ -82,7 +82,7 @@ window.onscroll = function () {
   if (prevScrollpos > currentScrollPos) {
     navbar.style.top = "0";
   } else {
-    navbar.style.top = "-200px";
+    navbar.style.top = "-500px";
   }
   prevScrollpos = currentScrollPos;
 }
