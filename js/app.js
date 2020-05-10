@@ -101,7 +101,7 @@ function scrollFunction() {
       backToTopButton.classList.remove("btnEntrance");
       setTimeout(function () {
         backToTopButton.style.display = "none";
-      }, 300);
+      });
     }
   }
 }
